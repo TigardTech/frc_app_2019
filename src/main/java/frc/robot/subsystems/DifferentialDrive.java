@@ -14,6 +14,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
 /**
+ * @deprecated Not the current drive system, this subsystem and it's commands have been abandoned.
+ * 
  * DifferentialDrive is a Subsystem for controlling a differential drive base
  * powered by wheels. It shouldn't be difficult (or likely even necessary) to
  * port the code over to drive a tread-based drive.
