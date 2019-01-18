@@ -14,6 +14,9 @@ package frc.robot;
  * floating around.
  */
 public class RobotMap {
-  public static int LEFT_DRIVE_MOTOR = 0;
-  public static int RIGHT_DRIVE_MOTOR = 1;
+  // Moco CAN IDs start at 10.
+  public static int FRONT_LEFT_DRIVE_MOTOR = 10;
+  public static int FRONT_RIGHT_DRIVE_MOTOR = 11;
+  public static int REAR_LEFT_DRIVE_MOTOR = 12;
+  public static int REAR_RIGHT_DRIVE_MOTOR = 13;
 }

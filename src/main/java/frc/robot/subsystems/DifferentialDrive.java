@@ -25,8 +25,8 @@ public class DifferentialDrive extends Subsystem {
   // Talons have a Follower mode that can be used for multi-motor to single
   // wheel drive.
   // @see com.ctre.phoenix.motorcontrol.can.BaseMotorController.set
-  TalonSRX leftDriveMotor = new TalonSRX(RobotMap.LEFT_DRIVE_MOTOR);
-  TalonSRX rightDriveMotor = new TalonSRX(RobotMap.RIGHT_DRIVE_MOTOR);
+  TalonSRX leftDriveMotor = new TalonSRX(RobotMap.FRONT_LEFT_DRIVE_MOTOR);
+  TalonSRX rightDriveMotor = new TalonSRX(RobotMap.FRONT_RIGHT_DRIVE_MOTOR);
 
   @Override
   public void initDefaultCommand() {
