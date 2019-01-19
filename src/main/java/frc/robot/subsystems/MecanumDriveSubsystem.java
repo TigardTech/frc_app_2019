@@ -7,11 +7,13 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import frc.robot.RobotMap;
+import frc.robot.commands.*;
 
 /**
  * Mecanum Drivebase
@@ -34,9 +36,20 @@ public class MecanumDriveSubsystem extends Subsystem {
     base.driveCartesian(ySpeed, xSpeed, zRotation);
   }
 
+  /**
+   * tell all the motors to stop. this should be the default command
+   */
+  public void fullStop(){
+    frontLeft.set(ControlMode.PercentOutput, 0);
+    frontRight.set(ControlMode.PercentOutput, 0);
+    rearLeft.set(ControlMode.PercentOutput, 0);
+    rearRight.set(ControlMode.PercentOutput, 0);
+  }
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new FullDriveStop());
   }
 }

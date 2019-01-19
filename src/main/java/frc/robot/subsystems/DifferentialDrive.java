@@ -20,6 +20,7 @@ import frc.robot.RobotMap;
  * powered by wheels. It shouldn't be difficult (or likely even necessary) to
  * port the code over to drive a tread-based drive.
  */
+@Deprecated
 public class DifferentialDrive extends Subsystem {
   // Programmer's Note:
   // Talons have a Follower mode that can be used for multi-motor to single
