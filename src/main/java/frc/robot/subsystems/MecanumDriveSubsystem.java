@@ -36,10 +36,7 @@ public class MecanumDriveSubsystem extends Subsystem {
     base.driveCartesian(ySpeed, xSpeed, zRotation);
   }
 
-  /**
-   * tell all the motors to stop. this should be the default command
-   */
-  public void fullStop(){
+  public void allStop(){
     frontLeft.set(ControlMode.PercentOutput, 0);
     frontRight.set(ControlMode.PercentOutput, 0);
     rearLeft.set(ControlMode.PercentOutput, 0);
