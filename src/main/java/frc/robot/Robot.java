@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -25,6 +26,7 @@ import frc.robot.subsystems.MecanumDriveSubsystem;
 public class Robot extends TimedRobot {
   public static MecanumDriveSubsystem mechDrive = new MecanumDriveSubsystem();
   public static OI m_oi;
+  public static Joystick main_stick = new Joystick(0);
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();

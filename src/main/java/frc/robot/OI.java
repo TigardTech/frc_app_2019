@@ -7,11 +7,14 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.buttons.Trigger;
+import frc.robot.triggers.*;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+  Trigger stickMoved = new MakeGo(); // what is going on
   //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
   //// joystick.
