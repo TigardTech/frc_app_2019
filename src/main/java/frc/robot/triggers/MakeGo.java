@@ -28,4 +28,11 @@ public class MakeGo extends Trigger {
       return false;
     }
   }
+
+  /*
+  @Override
+  public void whileActive(Command cmd){
+    cmd.start();
+  }
+  */
 }
