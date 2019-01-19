@@ -7,6 +7,8 @@
 
 package frc.robot.triggers;
 
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 import frc.robot.Robot;
 
@@ -22,7 +24,7 @@ import frc.robot.Robot;
 public class DialTrigger extends Trigger {
   @Override
   public boolean get() {
-    if(Math.abs(Robot.main_stick.getZ()) > 0.2) {
+    if(Robot.main_stick.getZ() > -0.8 && Robot.main_stick.getRawButton(3)) {
       return true;
     } else {
       return false;

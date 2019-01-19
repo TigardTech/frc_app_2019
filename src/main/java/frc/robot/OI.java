@@ -23,6 +23,7 @@ public class OI {
     stickMoved.whileActive(new DriveBot());
     stickMoved.whenInactive(new DriveFullStop());
     dialTurnt.whileActive(new IntakeSpin());
+    dialTurnt.whenInactive(new IntakeStop());
   }
   //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a

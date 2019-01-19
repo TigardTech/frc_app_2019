@@ -10,28 +10,20 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.robot.Robot;
 
-/**
- * Add your docs here.
- */
 public class DriveFullStop extends InstantCommand {
   /**
-   * Add your docs here.
+   * Command that halts the drive base. With prejudice.
    */
   public DriveFullStop() {
     super();
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
     requires(Robot.mechDrive);
   }
 
   // Called once when the command executes
   @Override
   protected void initialize() {
+    // use the real drivebase class where possible,
+    // or else the watchdog gets mad and might throw a fit
     Robot.mechDrive.allStop();
-    // R E C U R S I O N
-    DriveFullStop dfs = new DriveFullStop();
-    dfs.start();
-    
   }
-
 }

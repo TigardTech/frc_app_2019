@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.InstantCommand;
+import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.Robot;
 
 /**
@@ -23,9 +24,6 @@ public class IntakeStop extends InstantCommand {
   @Override
   protected void initialize() {
     Robot.intake.stop();
-    // R E C U R S I O N
-    IntakeStop i = new IntakeStop();
-    i.start();
   }
 
 }

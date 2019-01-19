@@ -37,10 +37,7 @@ public class MecanumDriveSubsystem extends Subsystem {
   }
 
   public void allStop(){
-    frontLeft.set(ControlMode.PercentOutput, 0);
-    frontRight.set(ControlMode.PercentOutput, 0);
-    rearLeft.set(ControlMode.PercentOutput, 0);
-    rearRight.set(ControlMode.PercentOutput, 0);
+    base.stopMotor();
   }
 
   @Override
