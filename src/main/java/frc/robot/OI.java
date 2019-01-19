@@ -15,11 +15,14 @@ import frc.robot.triggers.*;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-  private Trigger stickMoved = new MakeGo(); // what is going on
+  private Trigger stickMoved = new MainAxisTrigger(); // what is going on
+  private Trigger dialTurnt  = new DialTrigger();
   
   public OI(){
+    // MAIN STICK TRIGGERS / BUTTONS
     stickMoved.whileActive(new DriveBot());
-    stickMoved.whenInactive(new FullDriveStop());
+    stickMoved.whenInactive(new DriveFullStop());
+    dialTurnt.whileActive(new IntakeSpin());
   }
   //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a

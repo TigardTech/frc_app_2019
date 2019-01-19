@@ -10,19 +10,28 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.robot.Robot;
 
-public class DriveBot extends InstantCommand {
-  public DriveBot() {
+/**
+ * Add your docs here.
+ */
+public class DriveFullStop extends InstantCommand {
+  /**
+   * Add your docs here.
+   */
+  public DriveFullStop() {
+    super();
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    super();
-
     requires(Robot.mechDrive);
   }
 
   // Called once when the command executes
   @Override
   protected void initialize() {
-    Robot.mechDrive.drive(Robot.main_stick.getX(), Robot.main_stick.getY(), 0);
+    Robot.mechDrive.allStop();
+    // R E C U R S I O N
+    DriveFullStop dfs = new DriveFullStop();
+    dfs.start();
+    
   }
 
 }

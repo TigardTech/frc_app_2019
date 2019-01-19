@@ -18,11 +18,12 @@ import frc.robot.Robot;
  * 
  * abandon hope all ye who enter here
  */
-public class MakeGo extends Trigger {
+public class MainAxisTrigger extends Trigger {
 
   @Override
   public boolean get() {
-    if(Math.abs(Robot.main_stick.getY()) > 0.2 || Math.abs(Robot.main_stick.getX()) > 0.2 || Math.abs(Robot.main_stick.getZ()) > 0.2){
+    //  || Math.abs(Robot.main_stick.getZ()) > 0.2 used to be tacked on the end
+    if(Math.abs(Robot.main_stick.getY()) > 0.2 || Math.abs(Robot.main_stick.getX()) > 0.2){
       return true;
     } else {
       return false;

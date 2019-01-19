@@ -10,19 +10,22 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.robot.Robot;
 
-public class DriveBot extends InstantCommand {
-  public DriveBot() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
+/**
+ * Rotate the intake based on the Z axis' position.
+ */
+public class IntakeSpin extends InstantCommand {
+  /**
+   * Rotate the intake based on the Z axis' position.
+   */
+  public IntakeSpin() {
     super();
-
-    requires(Robot.mechDrive);
+    requires(Robot.intake);
   }
 
   // Called once when the command executes
   @Override
   protected void initialize() {
-    Robot.mechDrive.drive(Robot.main_stick.getX(), Robot.main_stick.getY(), 0);
+    Robot.intake.spin(Robot.main_stick.getZ());
   }
 
 }

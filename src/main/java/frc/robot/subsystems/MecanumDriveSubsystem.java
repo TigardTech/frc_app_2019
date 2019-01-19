@@ -32,8 +32,8 @@ public class MecanumDriveSubsystem extends Subsystem {
    * what dummy writes their own robot code anyway
    * @see edu.wpi.first.wpilibj.drive.MecanumDrive
    */
-  public void drive(double ySpeed, double xSpeed, double zRotation){
-    base.driveCartesian(ySpeed, xSpeed, zRotation);
+  public void drive(double xSpeed, double ySpeed, double zRotation){
+    base.driveCartesian(xSpeed, ySpeed, zRotation);
   }
 
   public void allStop(){
@@ -47,6 +47,6 @@ public class MecanumDriveSubsystem extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new FullDriveStop());
+    setDefaultCommand(new DriveFullStop());
   }
 }

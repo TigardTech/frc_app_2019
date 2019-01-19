@@ -13,7 +13,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commands.FullDriveStop;
+import frc.robot.commands.DriveFullStop;
+import frc.robot.subsystems.BallIntake;
 import frc.robot.subsystems.MecanumDriveSubsystem;
 
 /**
@@ -27,6 +28,7 @@ public class Robot extends TimedRobot {
   public static MecanumDriveSubsystem mechDrive = new MecanumDriveSubsystem();
   public static OI m_oi;
   public static Joystick main_stick = new Joystick(0);
+  public static BallIntake intake = new BallIntake();
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -38,7 +40,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_oi = new OI();
-    m_chooser.setDefaultOption("Default Auto", new FullDriveStop());
+    m_chooser.setDefaultOption("Default Auto", new DriveFullStop());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
   }

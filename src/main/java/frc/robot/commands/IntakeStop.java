@@ -11,23 +11,21 @@ import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.robot.Robot;
 
 /**
- * Add your docs here.
+ * No more spin :(
  */
-public class FullDriveStop extends InstantCommand {
-  /**
-   * Add your docs here.
-   */
-  public FullDriveStop() {
+public class IntakeStop extends InstantCommand {
+  public IntakeStop() {
     super();
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-    requires(Robot.mechDrive);
+    requires(Robot.intake);
   }
 
   // Called once when the command executes
   @Override
   protected void initialize() {
-    Robot.mechDrive.allStop();
+    Robot.intake.stop();
+    // R E C U R S I O N
+    IntakeStop i = new IntakeStop();
+    i.start();
   }
 
 }
