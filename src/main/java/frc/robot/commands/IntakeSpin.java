@@ -25,7 +25,11 @@ public class IntakeSpin extends InstantCommand {
   // Called once when the command executes
   @Override
   protected void initialize() {
-    Robot.intake.spin(Robot.main_stick.getZ());
+    if(Robot.main_stick.getRawButton(1)){
+      Robot.intake.spin(-Robot.main_stick.getZ());
+    } else {
+      Robot.intake.spin(Robot.main_stick.getZ());
+    }
   }
 
 }
