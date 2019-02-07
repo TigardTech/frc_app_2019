@@ -5,24 +5,21 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
+package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.command.InstantCommand;
-import frc.robot.Robot;
+import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- * No more spin :(
+ * Test Subsystem for a simple pneumatic device.
  */
-public class IntakeStop extends InstantCommand {
-  public IntakeStop() {
-    super();
-    requires(Robot.intake);
-  }
-
-  // Called once when the command executes
+public class PneumaticTester extends Subsystem {
   @Override
-  protected void initialize() {
-    Robot.intake.stop();
+  public void initDefaultCommand() {
+    // Set the default command for a subsystem here.
+    // setDefaultCommand(new MySpecialCommand());
   }
 
+  public void set(boolean state){
+
+  }
 }

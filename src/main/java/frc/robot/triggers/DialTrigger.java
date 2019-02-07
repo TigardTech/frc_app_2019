@@ -7,8 +7,6 @@
 
 package frc.robot.triggers;
 
-import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 import frc.robot.Robot;
 
