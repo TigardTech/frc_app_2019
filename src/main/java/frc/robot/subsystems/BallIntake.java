@@ -51,14 +51,14 @@ public class BallIntake extends Subsystem {
    * scaling the input from [-1, 1] to [0, 1] to keep things
    * going the right way around
    */
-   public void spin(double quickness){
+   public void spin(double quickness) {
     ballIntake.set(ControlMode.PercentOutput, normalize(quickness));
    }
 
    /**
     * tell the motor to do absolutely nothing
     */
-    public void stop(){
+    public void stop() {
       final double ADVANCED_NOTHING = 0;
       ballIntake.set(ControlMode.PercentOutput, ADVANCED_NOTHING);
     }

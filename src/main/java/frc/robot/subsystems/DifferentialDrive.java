@@ -52,7 +52,7 @@ public class DifferentialDrive extends Subsystem {
    * 
    * @param percent Percent of speed to turn. [-1, 1]. Positive values indicate clockwise rotation.
    */
-  public void turn(double percent){
+  public void turn(double percent) {
     leftDriveMotor.set(ControlMode.PercentOutput, percent);
     rightDriveMotor.set(ControlMode.PercentOutput, -percent);
   }
@@ -63,7 +63,7 @@ public class DifferentialDrive extends Subsystem {
    * @param percentL Percent of speed to turn left motor at. Negative values are backwards.
    * @param percentR Percent of speed to turn right motor at. Negative values are backwards.
    */
-  public void directControlMotor(double percentL, double percentR){
+  public void directControlMotor(double percentL, double percentR) {
     leftDriveMotor.set(ControlMode.PercentOutput, percentL);
     rightDriveMotor.set(ControlMode.PercentOutput, percentR);
   }
