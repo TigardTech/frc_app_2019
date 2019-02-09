@@ -21,20 +21,29 @@ public class BallIntake extends Subsystem {
   
   /**
    * Normalize a value in the range [-1, 1] to the range
-   * [0, 1]. You may ask a very important question:
-   * why is this hardcoded
+   * [0, 1].
    * @return normalized value
    */
   private double normalize(double x){
     // lots of final consts so this is easy
-    // to port. sure, I could write the function properly
-    // but then I wouldn't be able to just call normalize()
     final double X_RANGE_MAX = 1;
     final double X_RANGE_MIN = -1;
     final double NEW_RANGE_MAX = 1;
     final double NEW_RANGE_MIN = 0;
 
-    return (NEW_RANGE_MAX - NEW_RANGE_MIN)*((x - X_RANGE_MIN)/(X_RANGE_MAX-X_RANGE_MIN))+NEW_RANGE_MIN;
+    return this.normalize(X_RANGE_MIN, X_RANGE_MAX, NEW_RANGE_MIN, NEW_RANGE_MAX, x);
+  }
+    
+  /**
+   * Normalize a value in the range [X_RANGE_MIN, 
+   * X_RANGE_MAX] to the range [NEW_RANGE_MIN, 
+   * NEW_RANGE_MAX].
+   * @return normalized value
+   */
+  private double normalize(double X_RANGE_MIN, double X_RANGE_MAX, double NEW_RANGE_MIN, double NEW_RANGE_MAX, double x){
+    return (NEW_RANGE_MAX - NEW_RANGE_MIN) * (
+        (x - X_RANGE_MIN) / (X_RANGE_MAX - X_RANGE_MIN)
+      ) + NEW_RANGE_MIN;
   }
 
   /**
