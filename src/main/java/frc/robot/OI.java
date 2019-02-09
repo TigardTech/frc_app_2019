@@ -18,7 +18,7 @@ public class OI {
   private Trigger stickMoved = new MainAxisTrigger(); // what is going on
   private Trigger dialTurnt  = new DialTrigger();
   
-  public OI(){
+  public OI() {
     // MAIN STICK TRIGGERS / BUTTONS
     stickMoved.whileActive(new DriveBot());
     stickMoved.whenInactive(new DriveFullStop());
