@@ -42,7 +42,7 @@ public class DifferentialDrive extends Subsystem {
    * @param percent Percent to propel the robot at. Negative values are backwards.
    * @see directControlMotor
    */
-  public void drive(double percent){
+  public void drive(double percent) {
     leftDriveMotor.set(ControlMode.PercentOutput, percent);
     rightDriveMotor.set(ControlMode.PercentOutput, percent);
   }
