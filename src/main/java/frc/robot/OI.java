@@ -22,7 +22,7 @@ public class OI {
   private Button trigger = new JoystickButton(Robot.main_stick, 1);
   private Button button1 = new JoystickButton(Robot.main_stick, 2);
   
-  public OI(){
+  public OI() {
     // MAIN STICK TRIGGERS / BUTTONS
     stickMoved.whileActive(new DriveBot());
     stickMoved.whenInactive(new DriveFullStop());
