@@ -22,4 +22,5 @@ public class RobotMap {
   public static int REAR_LEFT_DRIVE_MOTOR = 11;
   public static int REAR_RIGHT_DRIVE_MOTOR = 10;
   public static int BALL_INTAKE_MOTOR = 13;
+  public static int TEST_SOLENOID = 0;
 }

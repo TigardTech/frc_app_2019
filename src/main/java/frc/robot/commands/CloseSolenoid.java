@@ -7,23 +7,20 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.InstantCommand;
+import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
-public class DriveBot extends InstantCommand {
-  public DriveBot() {
+public class CloseSolenoid extends Command {
+  public CloseSolenoid() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    super();
-
-    requires(Robot.mechDrive);
+    requires(Robot.sol);
   }
 
-  // Called once when the command executes
   @Override
-  protected void initialize() {
-    Robot.mechDrive.drive(Robot.main_stick.getX(), Robot.main_stick.getY(), 0);
-    
+  protected boolean isFinished() {
+    Robot.sol.set(false);
+    return true;
   }
-
 }

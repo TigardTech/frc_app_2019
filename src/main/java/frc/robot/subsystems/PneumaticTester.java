@@ -7,12 +7,16 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
 
 /**
  * Test Subsystem for a simple pneumatic device.
  */
 public class PneumaticTester extends Subsystem {
+  Solenoid testSolenoid = new Solenoid(RobotMap.TEST_SOLENOID);
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
@@ -20,6 +24,6 @@ public class PneumaticTester extends Subsystem {
   }
 
   public void set(boolean state){
-
+    testSolenoid.set(state);
   }
 }

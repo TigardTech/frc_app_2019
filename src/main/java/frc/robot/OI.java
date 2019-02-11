@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 import frc.robot.commands.*;
 import frc.robot.triggers.*;
@@ -17,6 +19,8 @@ import frc.robot.triggers.*;
 public class OI {
   private Trigger stickMoved = new MainAxisTrigger(); // what is going on
   private Trigger dialTurnt  = new DialTrigger();
+  private Button trigger = new JoystickButton(Robot.main_stick, 1);
+  private Button button1 = new JoystickButton(Robot.main_stick, 2);
   
   public OI(){
     // MAIN STICK TRIGGERS / BUTTONS
@@ -24,6 +28,8 @@ public class OI {
     stickMoved.whenInactive(new DriveFullStop());
     dialTurnt.whileActive(new IntakeSpin());
     dialTurnt.whenInactive(new IntakeStop());
+    trigger.whenPressed(new OpenSolenoid());
+    button1.whenPressed(new CloseSolenoid());
   }
   //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
