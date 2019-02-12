@@ -22,49 +22,49 @@ import frc.robot.RobotMap;
  */
 @Deprecated
 public class DifferentialDrive extends Subsystem {
-  // Programmer's Note:
-  // Talons have a Follower mode that can be used for multi-motor to single
-  // wheel drive.
-  // @see com.ctre.phoenix.motorcontrol.can.BaseMotorController.set
-  TalonSRX leftDriveMotor = new TalonSRX(RobotMap.FRONT_LEFT_DRIVE_MOTOR);
-  TalonSRX rightDriveMotor = new TalonSRX(RobotMap.FRONT_RIGHT_DRIVE_MOTOR);
+    // Programmer's Note:
+    // Talons have a Follower mode that can be used for multi-motor to single
+    // wheel drive.
+    // @see com.ctre.phoenix.motorcontrol.can.BaseMotorController.set
+    TalonSRX leftDriveMotor = new TalonSRX(RobotMap.FRONT_LEFT_DRIVE_MOTOR);
+    TalonSRX rightDriveMotor = new TalonSRX(RobotMap.FRONT_RIGHT_DRIVE_MOTOR);
 
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-  }
+    @Override
+    public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        // setDefaultCommand(new MySpecialCommand());
+    }
 
-  /**
-   * Get the robot to go in a direction. This is less specific control
-   * than directControlMotor();
-   * 
-   * @param percent Percent to propel the robot at. Negative values are backwards.
-   * @see directControlMotor
-   */
-  public void drive(double percent) {
-    leftDriveMotor.set(ControlMode.PercentOutput, percent);
-    rightDriveMotor.set(ControlMode.PercentOutput, percent);
-  }
+    /**
+     * Get the robot to go in a direction. This is less specific control
+     * than directControlMotor();
+     * 
+     * @param percent Percent to propel the robot at. Negative values are backwards.
+     * @see directControlMotor
+     */
+    public void drive(double percent) {
+        leftDriveMotor.set(ControlMode.PercentOutput, percent);
+        rightDriveMotor.set(ControlMode.PercentOutput, percent);
+    }
 
-  /**
-   * Make the robot turn.
-   * 
-   * @param percent Percent of speed to turn. [-1, 1]. Positive values indicate clockwise rotation.
-   */
-  public void turn(double percent) {
-    leftDriveMotor.set(ControlMode.PercentOutput, percent);
-    rightDriveMotor.set(ControlMode.PercentOutput, -percent);
-  }
+    /**
+     * Make the robot turn.
+     * 
+     * @param percent Percent of speed to turn. [-1, 1]. Positive values indicate clockwise rotation.
+     */
+    public void turn(double percent) {
+        leftDriveMotor.set(ControlMode.PercentOutput, percent);
+        rightDriveMotor.set(ControlMode.PercentOutput, -percent);
+    }
 
-  /**
-   * Assert direct control over the motors.
-   * 
-   * @param percentL Percent of speed to turn left motor at. Negative values are backwards.
-   * @param percentR Percent of speed to turn right motor at. Negative values are backwards.
-   */
-  public void directControlMotor(double percentL, double percentR) {
-    leftDriveMotor.set(ControlMode.PercentOutput, percentL);
-    rightDriveMotor.set(ControlMode.PercentOutput, percentR);
-  }
+    /**
+     * Assert direct control over the motors.
+     * 
+     * @param percentL Percent of speed to turn left motor at. Negative values are backwards.
+     * @param percentR Percent of speed to turn right motor at. Negative values are backwards.
+     */
+    public void directControlMotor(double percentL, double percentR) {
+        leftDriveMotor.set(ControlMode.PercentOutput, percentL);
+        rightDriveMotor.set(ControlMode.PercentOutput, percentR);
+    }
 }

@@ -10,17 +10,17 @@ package frc.robot;
 //import edu.wpi.first.wpilibj.Joystick;
 
 /**
- * The RobotMap is a mapping from the ports sensors and actuators are wired into
- * to a variable name. This provides flexibility changing wiring, makes checking
- * the wiring easier and significantly reduces the number of magic numbers
- * floating around.
- */
+* The RobotMap is a mapping from the ports sensors and actuators are wired into
+* to a variable name. This provides flexibility changing wiring, makes checking
+* the wiring easier and significantly reduces the number of magic numbers
+* floating around.
+*/
 public class RobotMap {
-  // Moco CAN IDs start at 10.
-  public static int FRONT_LEFT_DRIVE_MOTOR = 12;
-  public static int FRONT_RIGHT_DRIVE_MOTOR = 14;
-  public static int REAR_LEFT_DRIVE_MOTOR = 11;
-  public static int REAR_RIGHT_DRIVE_MOTOR = 10;
-  public static int BALL_INTAKE_MOTOR = 13;
-  public static int TEST_SOLENOID = 0;
+    // Moco CAN IDs start at 10.
+    public static int FRONT_LEFT_DRIVE_MOTOR = 12;
+    public static int FRONT_RIGHT_DRIVE_MOTOR = 14;
+    public static int REAR_LEFT_DRIVE_MOTOR = 11;
+    public static int REAR_RIGHT_DRIVE_MOTOR = 10;
+    public static int BALL_INTAKE_MOTOR = 13;
+    public static int TEST_SOLENOID = 0;
 }

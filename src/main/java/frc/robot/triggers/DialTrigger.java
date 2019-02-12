@@ -20,12 +20,12 @@ import frc.robot.Robot;
  * @see frc.robot.triggers.MainAxisTrigger
  */
 public class DialTrigger extends Trigger {
-  @Override
-  public boolean get() {
-    if(Robot.main_stick.getZ() > -0.8 && Robot.main_stick.getRawButton(3)) {
-      return true;
-    } else {
-      return false;
+    @Override
+    public boolean get() {
+        if(Robot.main_stick.getZ() > -0.8 && Robot.main_stick.getRawButton(3)) {
+            return true;
+        } else {
+            return false;
+        }
     }
-  }
 }

@@ -14,22 +14,21 @@ import frc.robot.Robot;
  * Rotate the intake based on the Z axis' position.
  */
 public class IntakeSpin extends InstantCommand {
-  /**
-   * Rotate the intake based on the Z axis' position.
-   */
-  public IntakeSpin() {
-    super();
-    requires(Robot.intake);
-  }
-
-  // Called once when the command executes
-  @Override
-  protected void initialize() {
-    if(Robot.main_stick.getRawButton(1)){
-      Robot.intake.spin(-Robot.main_stick.getZ());
-    } else {
-      Robot.intake.spin(Robot.main_stick.getZ());
+    /**
+     * Rotate the intake based on the Z axis' position.
+     */
+    public IntakeSpin() {
+        super();
+        requires(Robot.intake);
     }
-  }
 
+    // Called once when the command executes
+    @Override
+    protected void initialize() {
+        if(Robot.main_stick.getRawButton(1)){
+        Robot.intake.spin(-Robot.main_stick.getZ());
+        } else {
+        Robot.intake.spin(Robot.main_stick.getZ());
+        }
+    }
 }

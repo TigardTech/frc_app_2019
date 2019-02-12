@@ -14,15 +14,14 @@ import frc.robot.Robot;
  * No more spin :(
  */
 public class IntakeStop extends InstantCommand {
-  public IntakeStop() {
-    super();
-    requires(Robot.intake);
-  }
+    public IntakeStop() {
+        super();
+        requires(Robot.intake);
+    }
 
-  // Called once when the command executes
-  @Override
-  protected void initialize() {
-    Robot.intake.stop();
-  }
-
+    // Called once when the command executes
+    @Override
+    protected void initialize() {
+        Robot.intake.stop();
+    }
 }

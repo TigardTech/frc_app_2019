@@ -11,19 +11,19 @@ import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.robot.Robot;
 
 public class DriveFullStop extends InstantCommand {
-  /**
-   * Command that halts the drive base. With prejudice.
-   */
-  public DriveFullStop() {
-    super();
-    requires(Robot.mechDrive);
-  }
+    /**
+     * Command that halts the drive base. With prejudice.
+     */
+    public DriveFullStop() {
+        super();
+        requires(Robot.mechDrive);
+    }
 
-  // Called once when the command executes
-  @Override
-  protected void initialize() {
-    // use the real drivebase class where possible,
-    // or else the watchdog gets mad and might throw a fit
-    Robot.mechDrive.allStop();
-  }
+    // Called once when the command executes
+    @Override
+    protected void initialize() {
+        // use the real drivebase class where possible,
+        // or else the watchdog gets mad and might throw a fit
+        Robot.mechDrive.allStop();
+    }
 }

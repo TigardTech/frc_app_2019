@@ -9,18 +9,17 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
 public class CloseSolenoid extends Command {
-  public CloseSolenoid() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-    requires(Robot.sol);
-  }
+    public CloseSolenoid() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+        requires(Robot.sol);
+    }
 
-  @Override
-  protected boolean isFinished() {
-    Robot.sol.set(false);
-    return true;
-  }
+    @Override
+    protected boolean isFinished() {
+        Robot.sol.set(false);
+        return true;
+    }
 }

@@ -11,19 +11,18 @@ import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.robot.Robot;
 
 public class DriveBot extends InstantCommand {
-  public DriveBot() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-    super();
+    public DriveBot() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+        super();
 
-    requires(Robot.mechDrive);
-  }
+        requires(Robot.mechDrive);
+    }
 
-  // Called once when the command executes
-  @Override
-  protected void initialize() {
-    Robot.mechDrive.drive(Robot.main_stick.getX(), Robot.main_stick.getY(), 0);
-    
-  }
-
+    // Called once when the command executes
+    @Override
+    protected void initialize() {
+        Robot.mechDrive.drive(Robot.main_stick.getX(), Robot.main_stick.getY(), Robot.main_stick.getZ());
+        
+    }
 }

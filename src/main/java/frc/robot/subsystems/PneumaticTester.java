@@ -15,15 +15,15 @@ import frc.robot.RobotMap;
  * Test Subsystem for a simple pneumatic device.
  */
 public class PneumaticTester extends Subsystem {
-  Solenoid testSolenoid = new Solenoid(RobotMap.TEST_SOLENOID);
+    Solenoid testSolenoid = new Solenoid(RobotMap.TEST_SOLENOID);
 
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-  }
+    @Override
+    public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        // setDefaultCommand(new MySpecialCommand());
+    }
 
-  public void set(boolean state){
-    testSolenoid.set(state);
-  }
+    public void set(boolean state){
+        testSolenoid.set(state);
+    }
 }
