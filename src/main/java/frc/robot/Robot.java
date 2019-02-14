@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -33,6 +34,20 @@ public class Robot extends TimedRobot {
     public static BallIntake intake = new BallIntake();
     public static PneumaticTester sol = new PneumaticTester();
     public static Compressor compressor = new Compressor();
+    
+    /**
+     * These will access three USB cameras (1, 2, 3).
+     * Cameras with other numbers specified by startAutomaticCapture(int dev)
+     */
+    USBCamera cam_a = CameraServer.getInstance().startAutomaticCapture();
+    USBCamera cam_b = CameraServer.getInstance().startAutomaticCapture();
+    USBCamera cam_c = CameraServer.getInstance().startAutomaticCapture();
+    
+    /**
+     * Acess an Axis camera, takes String name and String hostname
+     */
+    AxisCamera camera = CameraServer.getInstance().addAxisCamera("Axis Camera", "127.0.0.1"); //whatever the actual camera is
+
 
     Command m_autonomousCommand;
     SendableChooser<Command> m_chooser = new SendableChooser<>();
