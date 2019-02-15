@@ -15,9 +15,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.DriveFullStop;
-import frc.robot.subsystems.BallIntake;
-import frc.robot.subsystems.MecanumDriveSubsystem;
-import frc.robot.subsystems.PneumaticTester;
+import frc.robot.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -31,8 +29,9 @@ public class Robot extends TimedRobot {
     public static OI m_oi;
     public static Joystick main_stick = new Joystick(0);
     public static BallIntake intake = new BallIntake();
-    public static PneumaticTester sol = new PneumaticTester();
+    //public static PneumaticTester sol = new PneumaticTester();
     public static Compressor compressor = new Compressor();
+    public static Ejector ejector = new Ejector();
 
     Command m_autonomousCommand;
     SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -59,8 +58,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void robotPeriodic() {
-        System.out.printf("enabled: %b; operating at %f amps%n", compressor.enabled(), compressor.getCompressorCurrent());
-        compressor.getCompressorCurrent();
+        //System.out.printf("Intake speed at %.2f%n", ejector.dbgGetEjectorSpeed());
     }
 
     /**

@@ -5,25 +5,25 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-
-// TODO: Steam hams
-/*
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.robot.Robot;
 
-public class CloseSolenoid extends Command {
-    public CloseSolenoid() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        requires(Robot.sol);
+public class EjectorFullStop extends InstantCommand {
+    /**
+     * Command that halts the drive base. With prejudice.
+     */
+    public EjectorFullStop() {
+        super();
+        requires(Robot.ejector);
     }
 
+    // Called once when the command executes
     @Override
-    protected boolean isFinished() {
-        Robot.sol.set(false);
-        return true;
+    protected void initialize() {
+        // use the real drivebase class where possible,
+        // or else the watchdog gets mad and might throw a fit
+        Robot.ejector.stop();
     }
 }
-*/

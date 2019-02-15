@@ -17,10 +17,13 @@ package frc.robot;
 */
 public class RobotMap {
     // Moco CAN IDs start at 10.
-    public static int FRONT_LEFT_DRIVE_MOTOR = 12;
-    public static int FRONT_RIGHT_DRIVE_MOTOR = 14;
-    public static int REAR_LEFT_DRIVE_MOTOR = 11;
-    public static int REAR_RIGHT_DRIVE_MOTOR = 10;
-    public static int BALL_INTAKE_MOTOR = 13;
-    public static int TEST_SOLENOID = 0;
+    public static int FRONT_LEFT_DRIVE_MOTOR = 14; // Talon
+    public static int FRONT_RIGHT_DRIVE_MOTOR = 15; // Talon
+    public static int REAR_LEFT_DRIVE_MOTOR = 10; // Talon
+    public static int REAR_RIGHT_DRIVE_MOTOR = 11; // Talon
+    public static int BALL_INTAKE_MOTOR = 12; // talon
+    public static int TEST_SOLENOID = 0; 
+    public static int BALL_EJECTOR_ONE = 13; // talon
+    public static int BALL_EJECTOR_TWO = 17; // victor
+    
 }
