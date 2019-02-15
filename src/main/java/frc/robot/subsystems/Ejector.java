@@ -23,7 +23,7 @@ public class Ejector extends Subsystem {
     WPI_VictorSPX ejectorTwo = new WPI_VictorSPX(RobotMap.BALL_EJECTOR_TWO);
 
     // speed factor for the ejector. multiply this by direction.
-    private double ejectorSpeed = 0;
+    private double ejectorSpeed = 0.5;
 
     /**
      * Spin the motor(s) attached to the ejector.

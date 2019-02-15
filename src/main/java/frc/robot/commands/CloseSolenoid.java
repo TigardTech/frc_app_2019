@@ -6,8 +6,6 @@
 /*----------------------------------------------------------------------------*/
 
 
-// TODO: Steam hams
-/*
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -17,13 +15,12 @@ public class CloseSolenoid extends Command {
     public CloseSolenoid() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(Robot.sol);
+        requires(Robot.intakeSol);
     }
 
     @Override
     protected boolean isFinished() {
-        Robot.sol.set(false);
+        Robot.intakeSol.set(false);
         return true;
     }
 }
-*/

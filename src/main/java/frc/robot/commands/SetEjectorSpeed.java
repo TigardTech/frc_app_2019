@@ -31,7 +31,7 @@ public class SetEjectorSpeed extends InstantCommand {
     @Override
     protected void initialize() {
         Robot.ejector.setEjectorSpeed(newSpeed);
-        System.out.printf("Changing ejector speed to %.2f", newSpeed);
+        System.out.printf("Changing ejector speed to %.2f%n", newSpeed);
     }
 
 }

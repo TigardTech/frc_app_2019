@@ -6,8 +6,6 @@
 /*----------------------------------------------------------------------------*/
 
 
-// TODO: where code
-/*
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -17,13 +15,12 @@ public class OpenSolenoid extends Command {
     public OpenSolenoid() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(Robot.sol);
+        requires(Robot.intakeSol);
     }
 
     @Override
     protected boolean isFinished() {
-        Robot.sol.set(true);
+        Robot.intakeSol.set(true);
         return true;
     }
 }
-*/

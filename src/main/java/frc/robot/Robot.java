@@ -29,7 +29,7 @@ public class Robot extends TimedRobot {
     public static OI m_oi;
     public static Joystick main_stick = new Joystick(0);
     public static BallIntake intake = new BallIntake();
-    //public static PneumaticTester sol = new PneumaticTester();
+    public static PneumaticTester intakeSol = new PneumaticTester();
     public static Compressor compressor = new Compressor();
     public static Ejector ejector = new Ejector();
 

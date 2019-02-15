@@ -18,7 +18,7 @@ import frc.robot.RobotMap;
  */
 public class BallIntake extends Subsystem {
     WPI_TalonSRX ballIntake = new WPI_TalonSRX(RobotMap.BALL_INTAKE_MOTOR);
-    
+        
     /**
      * Normalize a value in the range [-1, 1] to the range
      * [0, 1].
@@ -58,10 +58,10 @@ public class BallIntake extends Subsystem {
     /**
         * tell the motor to do absolutely nothing
         */
-        public void stop() {
+    public void stop() {
         final double ADVANCED_NOTHING = 0;
         ballIntake.set(ControlMode.PercentOutput, ADVANCED_NOTHING);
-        }
+    }
 
     @Override
     public void initDefaultCommand() {

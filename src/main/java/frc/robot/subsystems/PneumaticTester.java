@@ -15,7 +15,7 @@ import frc.robot.RobotMap;
  * Test Subsystem for a simple pneumatic device.
  */
 public class PneumaticTester extends Subsystem {
-    Solenoid testSolenoid = new Solenoid(RobotMap.TEST_SOLENOID);
+    Solenoid testSolenoid = new Solenoid(RobotMap.INTAKE_SOLENOID);
 
     @Override
     public void initDefaultCommand() {

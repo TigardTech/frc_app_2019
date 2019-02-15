@@ -18,28 +18,33 @@ import frc.robot.triggers.*;
  */
 public class OI {
     private Trigger stickMoved = new MainAxisTrigger(); // what is going on
-    private Trigger dialTurnt  = new DialTrigger();
+    private Trigger sliderMoved  = new SlideTrigger();
     private Button trigger = new JoystickButton(Robot.main_stick, 1);
     // below hat button
     private Button button1 = new JoystickButton(Robot.main_stick, 2);
-    private Button button2 = new JoystickButton(Robot.main_stick, 3);
-    private Button button3 = new JoystickButton(Robot.main_stick, 4);
+    private Button leftDome1 = new JoystickButton(Robot.main_stick, 5);
+    private Button leftDome2 = new JoystickButton(Robot.main_stick, 6);
+    private Button leftDome3 = new JoystickButton(Robot.main_stick, 7);
+    private Button twoDotLeft = new JoystickButton(Robot.main_stick, 9);
+    private Button oneDotLeftLeft = new JoystickButton(Robot.main_stick, 10);
+
   
     public OI() {
         // MAIN STICK TRIGGERS / BUTTONS
         stickMoved.whileActive(new DriveBot());
         stickMoved.whenInactive(new DriveFullStop());
-        dialTurnt.whileActive(new IntakeSpin());
-        dialTurnt.whenInactive(new IntakeStop());
+        sliderMoved.whileActive(new IntakeSpin());
+        sliderMoved.whenInactive(new IntakeStop());
 
-        trigger.whileActive(new EjectorControlledSpin(true));
-        button1.whileActive(new EjectorControlledSpin(false));
-        button2.whenPressed(new SetEjectorSpeed(0.25));
-        button3.whenPressed(new SetEjectorSpeed(0.5));
+        trigger.whileActive(new EjectorControlledSpin(false)); // launch
+        button1.whileActive(new EjectorControlledSpin(true));  // SUCC
+        leftDome1.whenPressed(new SetEjectorSpeed(0.25));
+        leftDome2.whenPressed(new SetEjectorSpeed(0.5));
+        leftDome3.whenPressed(new SetEjectorSpeed(1));
 
         // disable test pneumatics controls
-        //trigger.whenPressed(new OpenSolenoid());
-        //button1.whenPressed(new CloseSolenoid());
+        twoDotLeft.whenPressed(new OpenSolenoid());
+        oneDotLeftLeft.whenPressed(new CloseSolenoid());
     }
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a
