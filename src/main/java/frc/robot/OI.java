@@ -27,6 +27,8 @@ public class OI {
     private Button leftDome3 = new JoystickButton(Robot.main_stick, 7);
     private Button twoDotLeft = new JoystickButton(Robot.main_stick, 9);
     private Button oneDotLeftLeft = new JoystickButton(Robot.main_stick, 10);
+    private Button rightDome2 = new JoystickButton(Robot.main_stick, 12);
+    private Button rightDome1 = new JoystickButton(Robot.main_stick, 13);
 
   
     public OI() {
@@ -45,6 +47,9 @@ public class OI {
         // disable test pneumatics controls
         twoDotLeft.whenPressed(new OpenSolenoid());
         oneDotLeftLeft.whenPressed(new CloseSolenoid());
+
+        rightDome1.whenPressed(new CompressorOn());
+        rightDome2.whenPressed(new CompressorOff());
     }
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a

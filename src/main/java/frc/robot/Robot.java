@@ -32,6 +32,7 @@ public class Robot extends TimedRobot {
     public static PneumaticTester intakeSol = new PneumaticTester();
     public static Compressor compressor = new Compressor();
     public static Ejector ejector = new Ejector();
+    public static CompressorSubsystem com = new CompressorSubsystem();
 
     Command m_autonomousCommand;
     SendableChooser<Command> m_chooser = new SendableChooser<>();
