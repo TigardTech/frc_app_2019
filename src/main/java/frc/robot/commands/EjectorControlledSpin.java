@@ -25,6 +25,7 @@ public class EjectorControlledSpin extends InstantCommand {
     // eg. requires(chassis);
     requires(Robot.ejector);
     this.forward = forward;
+    this.setInterruptible(true);
   }
 
   // Called once when the command executes

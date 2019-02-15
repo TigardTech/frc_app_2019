@@ -17,6 +17,7 @@ public class EjectorFullStop extends InstantCommand {
     public EjectorFullStop() {
         super();
         requires(Robot.ejector);
+        this.setInterruptible(true);
     }
 
     // Called once when the command executes
