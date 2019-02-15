@@ -18,6 +18,10 @@ import frc.robot.RobotMap;
  */
 public class BallIntake extends Subsystem {
     WPI_TalonSRX ballIntake = new WPI_TalonSRX(RobotMap.BALL_INTAKE_MOTOR);
+
+    public BallIntake() {
+        ballIntake.setInverted(true);
+    }
         
     /**
      * Normalize a value in the range [-1, 1] to the range
