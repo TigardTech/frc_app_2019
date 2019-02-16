@@ -36,18 +36,19 @@ public class OI {
      * -su
      */
 
+    private Button stickLeft =       new JoystickButton(Robot.main_stick, 3);
+    private Button stickMiddle =     new JoystickButton(Robot.main_stick, 2);
+    //private Button stickRight =      new JoystickButton(Robot.main_stick, 4);
+    private Button leftDome1 =       new JoystickButton(Robot.main_stick, 5);
+    private Button leftDome2 =       new JoystickButton(Robot.main_stick, 6);
+    private Button leftDome3 =       new JoystickButton(Robot.main_stick, 7);
+    //private Button something =       new JoystickButton(Robot.main_stick, 8);
+    private Button twoDotLeft =      new JoystickButton(Robot.main_stick, 9);
+    private Button oneDotLeftLeft =  new JoystickButton(Robot.main_stick, 10);
+    private Button rightDome2 =      new JoystickButton(Robot.main_stick, 12);
+    private Button rightDome1 =      new JoystickButton(Robot.main_stick, 13);
     private Button oneDotRightLeft = new JoystickButton(Robot.main_stick, 14);
-    private Button twoDotRight = new JoystickButton(Robot.main_stick, 15);
-    private Button stickLeft = new JoystickButton(Robot.main_stick, 3);
-    //private Button stickRight = new JoystickButton(Robot.main_stick, 4);
-    private Button stickMiddle = new JoystickButton(Robot.main_stick, 2);
-    private Button leftDome1 = new JoystickButton(Robot.main_stick, 5);
-    private Button leftDome2 = new JoystickButton(Robot.main_stick, 6);
-    private Button leftDome3 = new JoystickButton(Robot.main_stick, 7);
-    private Button twoDotLeft = new JoystickButton(Robot.main_stick, 9);
-    private Button oneDotLeftLeft = new JoystickButton(Robot.main_stick, 10);
-    private Button rightDome2 = new JoystickButton(Robot.main_stick, 12);
-    private Button rightDome1 = new JoystickButton(Robot.main_stick, 13);
+    private Button twoDotRight =     new JoystickButton(Robot.main_stick, 15);
 
   
     public OI() {
