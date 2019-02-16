@@ -7,31 +7,30 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.Solenoid;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
 /**
- * Test Subsystem for a simple pneumatic device.
+ * Elevator lift carrying the ejector.
  */
-public class PneumaticTester extends Subsystem {
-    Solenoid testSolenoid = new Solenoid(RobotMap.INTAKE_SOLENOID);
+public class Lift extends Subsystem {
 
-    /**
-     * Deprecated Pneumatic test class.
-     */
-    @Deprecated
-    public PneumaticTester() {
-        // empty
-    }
+    WPI_VictorSPX liftMotor = new WPI_VictorSPX(RobotMap.LIFT_MOTOR);
 
-    @Override
-    public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        // setDefaultCommand(new MySpecialCommand());
-    }
+  @Override
+  public void initDefaultCommand() {
+    // Set the default command for a subsystem here.
+    // setDefaultCommand(new MySpecialCommand());
+  }
 
-    public void set(boolean state){
-        testSolenoid.set(state);
-    }
+  public void rotateMotor(double theSPEED) {
+      liftMotor.set(ControlMode.PercentOutput, theSPEED);
+  }
+
+  public void stopMotor() {
+      liftMotor.set(ControlMode.PercentOutput, 0);
+  }
 }

@@ -29,10 +29,12 @@ public class Robot extends TimedRobot {
     public static OI m_oi;
     public static Joystick main_stick = new Joystick(0);
     public static BallIntake intake = new BallIntake();
-    public static PneumaticTester intakeSol = new PneumaticTester();
+    public static GenericSolenoid intakeSol = new GenericSolenoid(RobotMap.INTAKE_SOLENOID);
+    public static GenericSolenoid pistonSol = new GenericSolenoid(RobotMap.PISTON_SOLENOID);
     public static Compressor compressor = new Compressor();
     public static Ejector ejector = new Ejector();
     public static CompressorSubsystem com = new CompressorSubsystem();
+    public static Lift roboLift = new Lift();
 
     Command m_autonomousCommand;
     SendableChooser<Command> m_chooser = new SendableChooser<>();

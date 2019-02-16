@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+//import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
@@ -18,6 +19,7 @@ import frc.robot.RobotMap;
  */
 public class BallIntake extends Subsystem {
     WPI_TalonSRX ballIntake = new WPI_TalonSRX(RobotMap.BALL_INTAKE_MOTOR);
+    //Solenoid intakeSol1 = new Solenoid(RobotMap.INTAKE_SOLENOID);
 
     public BallIntake() {
         ballIntake.setInverted(true);
@@ -72,4 +74,5 @@ public class BallIntake extends Subsystem {
         // Set the default command for a subsystem here.
         // setDefaultCommand(new MySpecialCommand());
     }
+
 }

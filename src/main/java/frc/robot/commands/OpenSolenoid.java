@@ -10,17 +10,40 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.subsystems.GenericSolenoid;
 
 public class OpenSolenoid extends Command {
+    private GenericSolenoid ourSol;
+    private boolean runningForGeneric = false;
+
+
+    /**
+     * Run OpenSolenoid with a hardcoded Solenoid
+     */
+    @Deprecated
     public OpenSolenoid() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(Robot.intakeSol);
     }
 
+    /**
+     * Run OpenSolenoid with a specific Solenoid, passed to the command.
+     * @param gs The solenoid.
+     */
+    public OpenSolenoid(GenericSolenoid gs) {
+        requires(gs);
+        ourSol = gs;
+        runningForGeneric = true;
+    }
+
     @Override
     protected boolean isFinished() {
-        Robot.intakeSol.set(true);
+        if(runningForGeneric) {
+            ourSol.set(true);
+        } else { 
+            Robot.intakeSol.set(true);
+        }
         return true;
     }
 }
