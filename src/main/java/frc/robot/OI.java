@@ -38,7 +38,7 @@ public class OI {
 
     private Button stickLeft =       new JoystickButton(Robot.main_stick, 3);
     private Button stickMiddle =     new JoystickButton(Robot.main_stick, 2);
-    //private Button stickRight =      new JoystickButton(Robot.main_stick, 4);
+    private Button stickRight =      new JoystickButton(Robot.main_stick, 4);
     private Button leftDome1 =       new JoystickButton(Robot.main_stick, 5);
     private Button leftDome2 =       new JoystickButton(Robot.main_stick, 6);
     private Button leftDome3 =       new JoystickButton(Robot.main_stick, 7);
@@ -55,15 +55,19 @@ public class OI {
         // MAIN STICK TRIGGERS / BUTTONS
         stickMoved.whileActive(new DriveBot());
         stickMoved.whenInactive(new DriveFullStop());
+
         sliderMoved.whileActive(new IntakeSpin());
         sliderMoved.whenInactive(new IntakeStop());
 
-        trigger.whileActive(new EjectorControlledSpin(false)); // launch
-        stickMiddle.whileActive(new EjectorControlledSpin(true));  // SUCC
+        trigger.whileActive(new EjectorOutFast()); // launch
+        stickMiddle.whileActive(new EjectorSlowReverse());  // SUCC
+        /* avoid using these too often
         leftDome1.whenPressed(new SetEjectorSpeed(0.25));
         leftDome2.whenPressed(new SetEjectorSpeed(0.5));
         leftDome3.whenPressed(new SetEjectorSpeed(1));
+        */
         stickLeft.whileActive(new EjectorInSlow());
+        stickRight.whileActive(new EjectorOutFast());
 
         twoDotLeft.whenPressed(new OpenSolenoid(Robot.intakeSol));
         oneDotLeftLeft.whenPressed(new CloseSolenoid(Robot.intakeSol));
@@ -76,6 +80,9 @@ public class OI {
 
         hatUp.whileActive(new RaiseLift());
         hatDown.whileActive(new LowerLift());
+
+        leftDome1.whileActive(new OpenSolenoid(Robot.grabPiston));
+        leftDome2.whileActive(new OpenSolenoid(Robot.shovePiston));
 
     }
     // here lies the giant comment that existed by default in the OI

@@ -7,40 +7,23 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.commands.CloseSolenoid;
 
 /**
- * Pneumatic compressor.
+ * Subtype of Solenoid that is controlled by held buttons rather than toggled.
  */
-public class CompressorSubsystem extends Subsystem {
+public class HeldSolenoid extends GenericSolenoid {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  Compressor c = new Compressor();
-  boolean isStarted = true;
-  
+
+  public HeldSolenoid(int solID){
+      super(solID);
+  }
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-  }
-
-  public void compressorOff() {
-      c.stop();
-      isStarted = false;
-  }
-
-  public void compressorOn() {
-      c.start();
-      isStarted = true;
-  }
-
-  public void enable(boolean state) {
-    if(state) {
-        this.compressorOn();
-    } else if (!state) {
-        this.compressorOff();
-    }
+    setDefaultCommand(new CloseSolenoid(this));
   }
 }

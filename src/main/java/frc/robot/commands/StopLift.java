@@ -7,17 +7,27 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.CommandGroup;
+import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.robot.Robot;
 
-public class EjectorInSlow extends CommandGroup {
+/**
+ * Add your docs here.
+ */
+public class StopLift extends InstantCommand {
   /**
-   * Pull the ball through the ejector chute slow-like;
+   * Add your docs here.
    */
-  public EjectorInSlow() {
-      if(Robot.ejector.getEjectorSpeed() != 0.25) {
-        addSequential(new SetEjectorSpeed(0.25));
-      }
-      addSequential(new EjectorControlledSpin(false));
+  public StopLift() {
+    super();
+    requires(Robot.roboLift);
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
   }
+
+  // Called once when the command executes
+  @Override
+  protected void initialize() {
+      Robot.roboLift.rotateMotor(0);
+  }
+
 }

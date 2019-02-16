@@ -24,6 +24,7 @@ public class CloseSolenoid extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(Robot.intakeSol);
+        this.setInterruptible(true);
     }
 
     /**

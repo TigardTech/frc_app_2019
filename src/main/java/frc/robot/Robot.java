@@ -35,6 +35,9 @@ public class Robot extends TimedRobot {
     public static Ejector ejector = new Ejector();
     public static CompressorSubsystem com = new CompressorSubsystem();
     public static Lift roboLift = new Lift();
+    //public static PlatePistons plate = new PlatePistons(RobotMap.GRAB_PISTON, RobotMap.SHOVE_PISTON);
+    public static HeldSolenoid grabPiston = new HeldSolenoid(RobotMap.GRAB_PISTON);
+    public static HeldSolenoid shovePiston = new HeldSolenoid(RobotMap.SHOVE_PISTON);
 
     Command m_autonomousCommand;
     SendableChooser<Command> m_chooser = new SendableChooser<>();

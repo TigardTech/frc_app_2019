@@ -10,14 +10,14 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.Robot;
 
-public class EjectorInSlow extends CommandGroup {
-  /**
-   * Pull the ball through the ejector chute slow-like;
-   */
-  public EjectorInSlow() {
-      if(Robot.ejector.getEjectorSpeed() != 0.25) {
-        addSequential(new SetEjectorSpeed(0.25));
-      }
-      addSequential(new EjectorControlledSpin(false));
-  }
+public class EjectorOutFast extends CommandGroup {
+    /**
+     * LAUNCH THE BALL AT MAXIMUM SPEED AS GOD INTENDED
+     */
+    public EjectorOutFast() {
+        if(Robot.ejector.getEjectorSpeed() != 1) {
+            addSequential(new SetEjectorSpeed(1));
+        }
+        addSequential(new EjectorControlledSpin(false));
+    }
 }

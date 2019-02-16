@@ -72,7 +72,10 @@ public class Ejector extends Subsystem {
         setDefaultCommand(new EjectorFullStop());
     }
 
-    public double dbgGetEjectorSpeed() {
+    /**
+     * look dad, I'm really OOP!
+     */
+    public double getEjectorSpeed() {
         return this.ejectorSpeed;
     }
 }

@@ -12,6 +12,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+import frc.robot.commands.StopLift;
 
 /**
  * Elevator lift carrying the ejector.
@@ -24,6 +25,8 @@ public class Lift extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new StopLift());
+    liftMotor.setInverted(true);
   }
 
   public void rotateMotor(double theSPEED) {
