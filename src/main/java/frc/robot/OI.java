@@ -39,7 +39,7 @@ public class OI {
     private Button oneDotRightLeft = new JoystickButton(Robot.main_stick, 14);
     private Button twoDotRight = new JoystickButton(Robot.main_stick, 15);
     private Button stickLeft = new JoystickButton(Robot.main_stick, 3);
-    private Button stickRight = new JoystickButton(Robot.main_stick, 4);
+    //private Button stickRight = new JoystickButton(Robot.main_stick, 4);
     private Button stickMiddle = new JoystickButton(Robot.main_stick, 2);
     private Button leftDome1 = new JoystickButton(Robot.main_stick, 5);
     private Button leftDome2 = new JoystickButton(Robot.main_stick, 6);
