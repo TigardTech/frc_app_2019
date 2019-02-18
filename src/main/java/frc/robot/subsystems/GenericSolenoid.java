@@ -44,4 +44,8 @@ public class GenericSolenoid extends Subsystem {
     public void set(boolean state){
         thisSol.set(state);
     }
+
+    public boolean getState() {
+        return thisSol.get();
+    }
 }

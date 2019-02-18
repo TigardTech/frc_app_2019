@@ -15,8 +15,8 @@ public class EjectorInSlow extends CommandGroup {
    * Pull the ball through the ejector chute slow-like;
    */
   public EjectorInSlow() {
-      if(Robot.ejector.getEjectorSpeed() != 0.25) {
-        addSequential(new SetEjectorSpeed(0.25));
+      if(Robot.ejector.getEjectorSpeed() != 0.4) {
+        addSequential(new SetEjectorSpeed(0.4));
       }
       addSequential(new EjectorControlledSpin(false));
   }

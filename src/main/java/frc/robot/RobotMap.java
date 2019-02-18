@@ -21,12 +21,13 @@ public class RobotMap {
     public static int FRONT_RIGHT_DRIVE_MOTOR = 15; // Talon
     public static int REAR_LEFT_DRIVE_MOTOR = 10; // Talon
     public static int REAR_RIGHT_DRIVE_MOTOR = 11; // Talon
-    public static int BALL_INTAKE_MOTOR = 12; // talo
+    public static int BALL_INTAKE_MOTOR = 12; // talon
     public static int INTAKE_SOLENOID = 1; 
-    public static int PISTON_SOLENOID = 2;
+    public static int FLOOR_SOLENOID = 2;
     public static int BALL_EJECTOR_ONE = 13; // talon
     public static int BALL_EJECTOR_TWO = 17; // victor
     public static int LIFT_MOTOR = 16; // victor
     public static int GRAB_PISTON = 6;
     public static int SHOVE_PISTON = 7;
+    public static double LIFT_SPEEDINESS = 1;
 }

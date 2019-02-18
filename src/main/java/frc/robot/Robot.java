@@ -30,7 +30,7 @@ public class Robot extends TimedRobot {
     public static Joystick main_stick = new Joystick(0);
     public static BallIntake intake = new BallIntake();
     public static GenericSolenoid intakeSol = new GenericSolenoid(RobotMap.INTAKE_SOLENOID);
-    public static GenericSolenoid pistonSol = new GenericSolenoid(RobotMap.PISTON_SOLENOID);
+    //public static GenericSolenoid pistonSol = new GenericSolenoid(RobotMap.FLOOR_SOLENOID);
     public static Compressor compressor = new Compressor();
     public static Ejector ejector = new Ejector();
     public static CompressorSubsystem com = new CompressorSubsystem();
@@ -38,6 +38,8 @@ public class Robot extends TimedRobot {
     //public static PlatePistons plate = new PlatePistons(RobotMap.GRAB_PISTON, RobotMap.SHOVE_PISTON);
     public static HeldSolenoid grabPiston = new HeldSolenoid(RobotMap.GRAB_PISTON);
     public static HeldSolenoid shovePiston = new HeldSolenoid(RobotMap.SHOVE_PISTON);
+
+    public static HeldSolenoid floorPiston = new HeldSolenoid(RobotMap.FLOOR_SOLENOID);
 
     Command m_autonomousCommand;
     SendableChooser<Command> m_chooser = new SendableChooser<>();

@@ -22,7 +22,7 @@ public class DriveBot extends InstantCommand {
     // Called once when the command executes
     @Override
     protected void initialize() {
-        Robot.mechDrive.drive(Robot.main_stick.getX(), Robot.main_stick.getY(), Robot.main_stick.getZ());
+        Robot.mechDrive.drive(Robot.main_stick.getX(), Robot.main_stick.getY(), -Robot.main_stick.getZ());
         
     }
 }

@@ -17,8 +17,8 @@ public class EjectorSlowReverse extends CommandGroup {
      * Slowly bring the ball back into the bot, changing speed if need be.
      */
     public EjectorSlowReverse() {
-        if(Robot.ejector.getEjectorSpeed() != 0.25) {
-            addSequential(new SetEjectorSpeed(0.25));
+        if(Robot.ejector.getEjectorSpeed() != 0.4) {
+            addSequential(new SetEjectorSpeed(0.4));
         }
         addSequential(new EjectorControlledSpin(true));
         // Add Commands here:

@@ -27,7 +27,7 @@ public class StopLift extends InstantCommand {
   // Called once when the command executes
   @Override
   protected void initialize() {
-      Robot.roboLift.rotateMotor(0);
+      Robot.roboLift.stopMotor();
   }
 
 }

@@ -69,11 +69,9 @@ public class OI {
         stickLeft.whileActive(new EjectorInSlow());
         stickRight.whileActive(new EjectorOutFast());
 
+        // Intake solenoid control
         twoDotLeft.whenPressed(new OpenSolenoid(Robot.intakeSol));
         oneDotLeftLeft.whenPressed(new CloseSolenoid(Robot.intakeSol));
-
-        oneDotRightLeft.whenPressed(new OpenSolenoid(Robot.pistonSol));
-        twoDotRight.whenPressed(new CloseSolenoid(Robot.pistonSol));
 
         rightDome1.whenPressed(new CompressorOn());
         rightDome2.whenPressed(new CompressorOff());
@@ -83,6 +81,7 @@ public class OI {
 
         leftDome1.whileActive(new OpenSolenoid(Robot.grabPiston));
         leftDome2.whileActive(new OpenSolenoid(Robot.shovePiston));
+        leftDome3.whileActive(new OpenSolenoid(Robot.floorPiston));
 
     }
     // here lies the giant comment that existed by default in the OI

@@ -10,8 +10,11 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
+import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.Robot;
 import frc.robot.RobotMap;
+import frc.robot.commands.OpenSolenoid;
 import frc.robot.commands.StopLift;
 
 /**
@@ -31,6 +34,12 @@ public class Lift extends Subsystem {
 
   public void rotateMotor(double theSPEED) {
       liftMotor.set(ControlMode.PercentOutput, theSPEED);
+      // ensure that the intake is down when we move this because engineers
+      // can find any way to turn a hardware/design issue into a software
+      // problem.
+      if(!Robot.intakeSol.getState()){
+          Scheduler.getInstance().add(new OpenSolenoid(Robot.intakeSol));
+      }
   }
 
   public void stopMotor() {
