@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -22,7 +23,7 @@ import frc.robot.commands.StopLift;
  */
 public class Lift extends Subsystem {
 
-    WPI_VictorSPX liftMotor = new WPI_VictorSPX(RobotMap.LIFT_MOTOR);
+    WPI_TalonSRX liftMotor = new WPI_TalonSRX(RobotMap.LIFT_MOTOR);
 
   @Override
   public void initDefaultCommand() {

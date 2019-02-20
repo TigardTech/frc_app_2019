@@ -8,6 +8,8 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
@@ -18,11 +20,13 @@ import frc.robot.commands.DriveFullStop;
  * Mecanum Drivebase
  */
 public class MecanumDriveSubsystem extends Subsystem {
-    WPI_TalonSRX frontLeft = new WPI_TalonSRX(RobotMap.FRONT_LEFT_DRIVE_MOTOR);
+    //WPI_TalonSRX frontLeft = new WPI_TalonSRX(RobotMap.FRONT_LEFT_DRIVE_MOTOR);
+    CANSparkMax frontLeft = new CANSparkMax(RobotMap.FRONT_LEFT_DRIVE_MOTOR, MotorType.kBrushed);
     WPI_TalonSRX frontRight = new WPI_TalonSRX(RobotMap.FRONT_RIGHT_DRIVE_MOTOR);
     WPI_TalonSRX rearLeft = new WPI_TalonSRX(RobotMap.REAR_LEFT_DRIVE_MOTOR);
     WPI_TalonSRX rearRight = new WPI_TalonSRX(RobotMap.REAR_RIGHT_DRIVE_MOTOR);
     MecanumDrive base = new MecanumDrive(frontLeft, rearLeft, frontRight, rearRight);
+    
 
 
     /**

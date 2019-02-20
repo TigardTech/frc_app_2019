@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 //import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -18,7 +19,7 @@ import frc.robot.RobotMap;
  * Spinny motor lad, he spin, he win
  */
 public class BallIntake extends Subsystem {
-    WPI_TalonSRX ballIntake = new WPI_TalonSRX(RobotMap.BALL_INTAKE_MOTOR);
+    WPI_VictorSPX ballIntake = new WPI_VictorSPX(RobotMap.BALL_INTAKE_MOTOR);
     //Solenoid intakeSol1 = new Solenoid(RobotMap.INTAKE_SOLENOID);
 
     public BallIntake() {
