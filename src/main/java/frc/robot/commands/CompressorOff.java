@@ -11,21 +11,23 @@ import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.robot.Robot;
 
 /**
- * Rotate the intake based on the Z axis' position.
+ * Turn off the compressor
  */
-public class IntakeSpin extends InstantCommand {
-    /**
-     * Rotate the intake based on the Z axis' position.
-     */
-    public IntakeSpin() {
-        super();
-        requires(Robot.intake);
-    }
+public class CompressorOff extends InstantCommand {
+  /**
+   * Turn off robot compressor
+   */
+  public CompressorOff() {
+    super();
+    requires(Robot.com);
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
+  }
 
-    // Called once when the command executes
-    @Override
-    protected void initialize() {
-        Robot.intake.spin(Robot.main_stick.getRawAxis(3));
-        System.out.printf("trying to spin at %.2f%n", Robot.main_stick.getRawAxis(3));
-    }
+  // Called once when the command executes
+  @Override
+  protected void initialize() {
+      Robot.com.compressorOff();
+  }
+
 }

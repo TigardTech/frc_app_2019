@@ -5,24 +5,26 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
+package frc.robot.triggers;
 
-import edu.wpi.first.wpilibj.command.InstantCommand;
+import edu.wpi.first.wpilibj.buttons.Trigger;
 import frc.robot.Robot;
 
-public class DriveBot extends InstantCommand {
-    public DriveBot() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        super();
-
-        requires(Robot.mechDrive);
-    }
-
-    // Called once when the command executes
+/**
+ * For the current joystick, now. Yay.
+ * triggers under similar conditions to MainAxisTrigger,
+ * but only for the "Z" axis (the little slider on the
+ * front of the stick that the class is named after)
+ * 
+ * @see frc.robot.triggers.MainAxisTrigger
+ */
+public class SlideTrigger extends Trigger {
     @Override
-    protected void initialize() {
-        Robot.mechDrive.drive(Robot.main_stick.getX(), Robot.main_stick.getY(), -Robot.main_stick.getZ());
-        
+    public boolean get() {
+        if(Robot.main_stick.getRawAxis(3) > -0.8) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

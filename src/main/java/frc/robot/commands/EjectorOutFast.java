@@ -7,25 +7,17 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.InstantCommand;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.Robot;
 
-/**
- * Rotate the intake based on the Z axis' position.
- */
-public class IntakeSpin extends InstantCommand {
+public class EjectorOutFast extends CommandGroup {
     /**
-     * Rotate the intake based on the Z axis' position.
+     * LAUNCH THE BALL AT MAXIMUM SPEED AS GOD INTENDED
      */
-    public IntakeSpin() {
-        super();
-        requires(Robot.intake);
-    }
-
-    // Called once when the command executes
-    @Override
-    protected void initialize() {
-        Robot.intake.spin(Robot.main_stick.getRawAxis(3));
-        System.out.printf("trying to spin at %.2f%n", Robot.main_stick.getRawAxis(3));
+    public EjectorOutFast() {
+        if(Robot.ejector.getEjectorSpeed() != 1) {
+            addSequential(new SetEjectorSpeed(1));
+        }
+        addSequential(new EjectorControlledSpin(false));
     }
 }

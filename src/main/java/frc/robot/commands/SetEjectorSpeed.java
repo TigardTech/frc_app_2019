@@ -11,21 +11,27 @@ import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.robot.Robot;
 
 /**
- * Rotate the intake based on the Z axis' position.
+ * Add your docs here.
  */
-public class IntakeSpin extends InstantCommand {
+public class SetEjectorSpeed extends InstantCommand {
+    private double newSpeed;
+    
     /**
-     * Rotate the intake based on the Z axis' position.
+     * Add your docs here.
      */
-    public IntakeSpin() {
+    public SetEjectorSpeed(double newSpeed) {
         super();
-        requires(Robot.intake);
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+        requires(Robot.ejector);
+        this.newSpeed = newSpeed;
     }
 
     // Called once when the command executes
     @Override
     protected void initialize() {
-        Robot.intake.spin(Robot.main_stick.getRawAxis(3));
-        System.out.printf("trying to spin at %.2f%n", Robot.main_stick.getRawAxis(3));
+        Robot.ejector.setEjectorSpeed(newSpeed);
+        System.out.printf("Changing ejector speed to %.2f%n", newSpeed);
     }
+
 }

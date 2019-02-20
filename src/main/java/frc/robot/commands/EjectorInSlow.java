@@ -7,22 +7,17 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.InstantCommand;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import frc.robot.Robot;
 
-public class DriveBot extends InstantCommand {
-    public DriveBot() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        super();
-
-        requires(Robot.mechDrive);
-    }
-
-    // Called once when the command executes
-    @Override
-    protected void initialize() {
-        Robot.mechDrive.drive(Robot.main_stick.getX(), Robot.main_stick.getY(), -Robot.main_stick.getZ());
-        
-    }
+public class EjectorInSlow extends CommandGroup {
+  /**
+   * Pull the ball through the ejector chute slow-like;
+   */
+  public EjectorInSlow() {
+      if(Robot.ejector.getEjectorSpeed() != 0.4) {
+        addSequential(new SetEjectorSpeed(0.4));
+      }
+      addSequential(new EjectorControlledSpin(false));
+  }
 }

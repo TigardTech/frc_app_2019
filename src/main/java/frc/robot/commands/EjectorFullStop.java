@@ -10,22 +10,21 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.robot.Robot;
 
-/**
- * Rotate the intake based on the Z axis' position.
- */
-public class IntakeSpin extends InstantCommand {
+public class EjectorFullStop extends InstantCommand {
     /**
-     * Rotate the intake based on the Z axis' position.
+     * Command that halts the drive base. With prejudice.
      */
-    public IntakeSpin() {
+    public EjectorFullStop() {
         super();
-        requires(Robot.intake);
+        requires(Robot.ejector);
+        this.setInterruptible(true);
     }
 
     // Called once when the command executes
     @Override
     protected void initialize() {
-        Robot.intake.spin(Robot.main_stick.getRawAxis(3));
-        System.out.printf("trying to spin at %.2f%n", Robot.main_stick.getRawAxis(3));
+        // use the real drivebase class where possible,
+        // or else the watchdog gets mad and might throw a fit
+        Robot.ejector.stop();
     }
 }

@@ -5,21 +5,45 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.subsystems.GenericSolenoid;
 
 public class CloseSolenoid extends Command {
+    private GenericSolenoid ourSol;
+    private boolean runningForGeneric = false;
+
+    /**
+     * Run CloseSolenoid with a hardcoded Solenoid
+     */
+    @Deprecated
     public CloseSolenoid() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(Robot.sol);
+        requires(Robot.intakeSol);
+        this.setInterruptible(true);
+    }
+
+    /**
+     * Run CloseSolenoid with a specific solenoid, passed to the command.
+     * @param gs The solenoid to * A C T U A T E *
+     */
+    public CloseSolenoid(GenericSolenoid gs) {
+        requires(gs);
+        ourSol = gs;
+        runningForGeneric = true;
     }
 
     @Override
     protected boolean isFinished() {
-        Robot.sol.set(false);
+        if(runningForGeneric) {
+            ourSol.set(false);
+        } else {
+            Robot.intakeSol.set(false);
+        }
         return true;
     }
 }

@@ -9,7 +9,9 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
+//import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
@@ -17,8 +19,13 @@ import frc.robot.RobotMap;
  * Spinny motor lad, he spin, he win
  */
 public class BallIntake extends Subsystem {
-    WPI_TalonSRX ballIntake = new WPI_TalonSRX(RobotMap.BALL_INTAKE_MOTOR);
-    
+    WPI_VictorSPX ballIntake = new WPI_VictorSPX(RobotMap.BALL_INTAKE_MOTOR);
+    //Solenoid intakeSol1 = new Solenoid(RobotMap.INTAKE_SOLENOID);
+
+    public BallIntake() {
+        ballIntake.setInverted(true);
+    }
+        
     /**
      * Normalize a value in the range [-1, 1] to the range
      * [0, 1].
@@ -58,14 +65,15 @@ public class BallIntake extends Subsystem {
     /**
         * tell the motor to do absolutely nothing
         */
-        public void stop() {
+    public void stop() {
         final double ADVANCED_NOTHING = 0;
         ballIntake.set(ControlMode.PercentOutput, ADVANCED_NOTHING);
-        }
+    }
 
     @Override
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         // setDefaultCommand(new MySpecialCommand());
     }
+
 }
