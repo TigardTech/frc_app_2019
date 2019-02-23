@@ -7,20 +7,27 @@
 
 package frc.robot;
 
-/**
- * The RobotMap is a mapping from the ports sensors and actuators are wired into
- * to a variable name. This provides flexibility changing wiring, makes checking
- * the wiring easier and significantly reduces the number of magic numbers
- * floating around.
- */
-public class RobotMap {
-  // For example to map the left and right motors, you could define the
-  // following variables to use with your drivetrain subsystem.
-  // public static int leftMotor = 1;
-  // public static int rightMotor = 2;
+//import edu.wpi.first.wpilibj.Joystick;
 
-  // If you are using multiple modules, make sure to define both the port
-  // number and the module. For example you with a rangefinder:
-  // public static int rangefinderPort = 1;
-  // public static int rangefinderModule = 1;
+/**
+* The RobotMap is a mapping from the ports sensors and actuators are wired into
+* to a variable name. This provides flexibility changing wiring, makes checking
+* the wiring easier and significantly reduces the number of magic numbers
+* floating around.
+*/
+public class RobotMap {
+    // Moco CAN IDs start at 10.
+    public static int FRONT_LEFT_DRIVE_MOTOR = 18; // Spark MAX
+    public static int FRONT_RIGHT_DRIVE_MOTOR = 11; // Talon
+    public static int REAR_LEFT_DRIVE_MOTOR = 14; // Talon
+    public static int REAR_RIGHT_DRIVE_MOTOR = 12; // Talon
+    public static int BALL_INTAKE_MOTOR = 16; // Victor
+    public static int INTAKE_SOLENOID = 1; 
+    public static int FLOOR_SOLENOID = 2;
+    public static int BALL_EJECTOR_ONE = 15; // talon
+    public static int BALL_EJECTOR_TWO = 17; // victor
+    public static int LIFT_MOTOR = 10; // Talon
+    public static int GRAB_PISTON = 6;
+    public static int SHOVE_PISTON = 7;
+    public static double LIFT_SPEEDINESS = 0.5;
 }
