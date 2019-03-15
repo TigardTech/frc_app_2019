@@ -27,7 +27,18 @@ public class MecanumDriveSubsystem extends Subsystem {
     WPI_TalonSRX rearRight = new WPI_TalonSRX(RobotMap.REAR_RIGHT_DRIVE_MOTOR);
     MecanumDrive base = new MecanumDrive(frontLeft, rearLeft, frontRight, rearRight);
     
-
+    /**
+     * Constructor for MecanumDriveSubsystem
+     * exists to set inversions on select motors.
+     * 
+     * this changes like every ten minutes.
+     * if I built a car the front and rear axles would
+     * turn opposite each other
+     */
+    public MecanumDriveSubsystem() {
+        frontLeft.setInverted(true);
+        frontRight.setInverted(true);
+    }
 
     /**
      * stupid wrapper for WPI's mecanum drive
@@ -48,5 +59,21 @@ public class MecanumDriveSubsystem extends Subsystem {
         // Set the default command for a subsystem here.
         // setDefaultCommand(new MySpecialCommand());
         setDefaultCommand(new DriveFullStop());
+    }
+
+    public void motorDirectFL(double sp) {
+        frontLeft.set(sp);
+    }
+
+    public void motorDirectFR(double sp) {
+        frontRight.set(sp);
+    }
+
+    public void motorDirectRL(double sp) {
+        rearLeft.set(sp);
+    }
+
+    public void motorDirectRR(double sp) {
+        rearRight.set(sp);
     }
 }

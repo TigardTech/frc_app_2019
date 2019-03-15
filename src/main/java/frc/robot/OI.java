@@ -45,11 +45,16 @@ public class OI {
     //private Button something =       new JoystickButton(Robot.main_stick, 8);
     private Button twoDotLeft =      new JoystickButton(Robot.main_stick, 9);
     private Button oneDotLeftLeft =  new JoystickButton(Robot.main_stick, 10);
-    private Button rightDome2 =      new JoystickButton(Robot.main_stick, 12);
-    private Button rightDome1 =      new JoystickButton(Robot.main_stick, 13);
+    
+    private Button rightDome3 =      new JoystickButton(Robot.main_stick, 11);
     private Button oneDotRightLeft = new JoystickButton(Robot.main_stick, 14);
     private Button twoDotRight =     new JoystickButton(Robot.main_stick, 15);
+    private Button oneDotRightRight = new JoystickButton(Robot.main_stick, 16);
 
+
+    private Button rightDome2 =      new JoystickButton(Robot.main_stick, 12);
+    private Button rightDome1 =      new JoystickButton(Robot.main_stick, 13);
+    
   
     public OI() {
         // MAIN STICK TRIGGERS / BUTTONS
@@ -83,7 +88,14 @@ public class OI {
         leftDome2.whileActive(new OpenSolenoid(Robot.shovePiston));
         leftDome3.whileActive(new OpenSolenoid(Robot.floorPiston));
 
+        /* mech test
+        rightDome3.whileActive(new mechTest(1)); // FRONT LEFT
+        oneDotRightLeft.whileActive(new mechTest(2)); // FRONT RIGHT
+        twoDotRight.whileActive(new mechTest(3)); // REAR LEFT
+        oneDotRightRight.whileActive(new mechTest(4)); // REAR RIGHT
+        */
     }
+
     // here lies the giant comment that existed by default in the OI
     // may he rest in peace
 }
