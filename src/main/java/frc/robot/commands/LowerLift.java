@@ -28,7 +28,7 @@ public class LowerLift extends InstantCommand {
   // Called once when the command executes
   @Override
   protected void initialize() {
-      Robot.roboLift.rotateMotor(-RobotMap.LIFT_SPEEDINESS);
+      Robot.roboLift.rotateMotor(-RobotMap.DOWN_LIFT_SPEEDINESS);
   }
 
 }

@@ -25,7 +25,7 @@ public class MecanumDriveSubsystem extends Subsystem {
     WPI_TalonSRX frontRight = new WPI_TalonSRX(RobotMap.FRONT_RIGHT_DRIVE_MOTOR);
     WPI_TalonSRX rearLeft = new WPI_TalonSRX(RobotMap.REAR_LEFT_DRIVE_MOTOR);
     WPI_TalonSRX rearRight = new WPI_TalonSRX(RobotMap.REAR_RIGHT_DRIVE_MOTOR);
-    MecanumDrive base = new MecanumDrive(frontLeft, rearLeft, frontRight, rearRight);
+    MecanumDrive base = new MecanumDrive(frontLeft, frontRight, rearLeft, rearRight);
     
     /**
      * Constructor for MecanumDriveSubsystem
@@ -36,8 +36,10 @@ public class MecanumDriveSubsystem extends Subsystem {
      * turn opposite each other
      */
     public MecanumDriveSubsystem() {
-        frontLeft.setInverted(true);
+        
         frontRight.setInverted(true);
+        rearLeft.setInverted(true);
+        
     }
 
     /**
@@ -47,7 +49,7 @@ public class MecanumDriveSubsystem extends Subsystem {
      * @see edu.wpi.first.wpilibj.drive.MecanumDrive
      */
     public void drive(double xSpeed, double ySpeed, double zRotation){
-        base.driveCartesian(xSpeed, ySpeed, zRotation);
+        base.driveCartesian(ySpeed, xSpeed, zRotation);
     }
 
     public void allStop(){

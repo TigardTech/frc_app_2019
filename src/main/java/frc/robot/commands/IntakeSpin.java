@@ -26,6 +26,6 @@ public class IntakeSpin extends InstantCommand {
     @Override
     protected void initialize() {
         Robot.intake.spin(Robot.main_stick.getRawAxis(3));
-        System.out.printf("trying to spin at %.2f%n", Robot.main_stick.getRawAxis(3));
+        //System.out.printf("trying to spin at %.2f%n", Robot.main_stick.getRawAxis(3));
     }
 }

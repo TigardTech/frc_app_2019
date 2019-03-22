@@ -22,7 +22,7 @@ public class BallIntake extends Subsystem {
     //Solenoid intakeSol1 = new Solenoid(RobotMap.INTAKE_SOLENOID);
 
     public BallIntake() {
-        ballIntake.setInverted(true);
+        ballIntake.setInverted(false);
     }
         
     /**
