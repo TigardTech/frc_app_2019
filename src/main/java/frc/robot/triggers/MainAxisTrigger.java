@@ -7,11 +7,12 @@
 
 package frc.robot.triggers;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 import frc.robot.Robot;
 
 /**
- * Triggers on any activity outside the 0.2 range from joystick 0.
+ * Triggers on any activity outside the 0.2 range from given joystick
  * 
  * note: right now our joystick instance is inside Robot. idk if it matters
  * but it might maybe break something
@@ -20,12 +21,17 @@ import frc.robot.Robot;
  */
 public class MainAxisTrigger extends Trigger {
 
+  private Joystick joy;
+
+  public MainAxisTrigger(Joystick joy) {
+    this.joy = joy;
+  }
+
   @Override
   public boolean get() {
     final double DEADZONE = 0.15;
     //  || Math.abs(Robot.main_stick.getZ()) > 0.2 used to be tacked on the end
-    if(Math.abs(Robot.main_stick.getY()) > DEADZONE || Math.abs(Robot.main_stick.getX()) > DEADZONE || 
-        Math.abs(Robot.main_stick.getZ()) > DEADZONE){
+    if(Math.abs(joy.getY()) > DEADZONE || Math.abs(joy.getX()) > DEADZONE){
       return true;
     } else {
       return false;

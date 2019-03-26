@@ -28,6 +28,7 @@ public class Robot extends TimedRobot {
     public static MecanumDriveSubsystem mechDrive = new MecanumDriveSubsystem();
     public static OI m_oi;
     public static Joystick main_stick = new Joystick(0);
+    public static Joystick lift_stick = new Joystick(1);
     public static BallIntake intake = new BallIntake();
     public static GenericSolenoid intakeSol = new GenericSolenoid(RobotMap.INTAKE_SOLENOID);
     //public static GenericSolenoid pistonSol = new GenericSolenoid(RobotMap.FLOOR_SOLENOID);

@@ -17,12 +17,15 @@ import frc.robot.triggers.*;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-    private Trigger stickMoved = new MainAxisTrigger(); // what is going on
-    private Trigger sliderMoved  = new SlideTrigger();
-    private Trigger hatUp = new HatTrigger(0);
-    private Trigger hatDown = new HatTrigger(180);
-    private Button trigger = new JoystickButton(Robot.main_stick, 1);
-    // below hat button
+    private Trigger mainStickMoved =   new MainAxisTrigger(Robot.main_stick);
+    private Trigger mainStickTwist =   new ZAxisTrigger(Robot.main_stick, false);
+    private Trigger mainSliderMoved  = new SlideTrigger();
+    private Trigger mainHatUp =        new HatTrigger(0);
+    private Trigger mainHatDown =      new HatTrigger(180);
+    private Button mainTrigger =       new JoystickButton(Robot.main_stick, 1);
+
+    private Trigger liftStickMoved = new MainAxisTrigger(Robot.lift_stick);
+    private Trigger liftDial      = new ZAxisTrigger(Robot.lift_stick, true);
 
     /**
      * To those of you that may be strugging to read by absolutely terrible button names,
@@ -36,57 +39,54 @@ public class OI {
      * -su
      */
 
-    private Button stickLeft =       new JoystickButton(Robot.main_stick, 3);
-    private Button stickMiddle =     new JoystickButton(Robot.main_stick, 2);
-    private Button stickRight =      new JoystickButton(Robot.main_stick, 4);
-    private Button leftDome1 =       new JoystickButton(Robot.main_stick, 5);
-    private Button leftDome2 =       new JoystickButton(Robot.main_stick, 6);
-    private Button leftDome3 =       new JoystickButton(Robot.main_stick, 7);
-    //private Button something =       new JoystickButton(Robot.main_stick, 8);
-    private Button twoDotLeft =      new JoystickButton(Robot.main_stick, 9);
-    private Button oneDotLeftLeft =  new JoystickButton(Robot.main_stick, 10);
+    private Button mainStickLeft =        new JoystickButton(Robot.main_stick, 3);
+    private Button mainStickMiddle =      new JoystickButton(Robot.main_stick, 2);
+    private Button mainStickRight =       new JoystickButton(Robot.main_stick, 4);
+    private Button mainLeftDome1 =        new JoystickButton(Robot.main_stick, 5);
+    private Button mainLeftDome2 =        new JoystickButton(Robot.main_stick, 6);
+    private Button mainLeftDome3 =        new JoystickButton(Robot.main_stick, 7);
+    //private Button something =          new JoystickButton(Robot.main_stick, 8);
+    private Button mainTwoDotLeft =       new JoystickButton(Robot.main_stick, 9);
+    private Button mainOneDotLeftLeft =   new JoystickButton(Robot.main_stick, 10);
+    private Button mainRightDome3 =       new JoystickButton(Robot.main_stick, 11);
+    private Button mainOneDotRightLeft =  new JoystickButton(Robot.main_stick, 14);
+    private Button mainTwoDotRight =      new JoystickButton(Robot.main_stick, 15);
+    private Button mainOneDotRightRight = new JoystickButton(Robot.main_stick, 16);
+    private Button mainRightDome2 =       new JoystickButton(Robot.main_stick, 12);
+    private Button mainRightDome1 =       new JoystickButton(Robot.main_stick, 13);
     
-    private Button rightDome3 =      new JoystickButton(Robot.main_stick, 11);
-    private Button oneDotRightLeft = new JoystickButton(Robot.main_stick, 14);
-    private Button twoDotRight =     new JoystickButton(Robot.main_stick, 15);
-    private Button oneDotRightRight = new JoystickButton(Robot.main_stick, 16);
+    private Button liftTrigger    =       new JoystickButton(Robot.lift_stick, 1);
+    private Button lift2          =       new JoystickButton(Robot.lift_stick, 2);
+    private Button lift3          =       new JoystickButton(Robot.lift_stick, 3);
+    private Button lift8          =       new JoystickButton(Robot.lift_stick, 8);
+    private Button lift9          =       new JoystickButton(Robot.lift_stick, 9);
 
-
-    private Button rightDome2 =      new JoystickButton(Robot.main_stick, 12);
-    private Button rightDome1 =      new JoystickButton(Robot.main_stick, 13);
-    
-  
     public OI() {
         // MAIN STICK TRIGGERS / BUTTONS
-        stickMoved.whileActive(new DriveBot());
-        stickMoved.whenInactive(new DriveFullStop());
+        mainStickMoved.whileActive(new DriveBot());
+        mainStickTwist.whileActive(new DriveBot());
+        mainStickMoved.whenInactive(new DriveFullStop());
 
-        sliderMoved.whileActive(new IntakeSpin());
-        sliderMoved.whenInactive(new IntakeStop());
+        liftDial.whileActive(new IntakeSpin());
+        liftDial.whenInactive(new IntakeStop());
+        liftStickMoved.whileActive(new ControlLift());
 
-        trigger.whileActive(new EjectorOutFast()); // launch
-        stickMiddle.whileActive(new EjectorSlowReverse());  // SUCC
-        /* avoid using these too often
-        leftDome1.whenPressed(new SetEjectorSpeed(0.25));
-        leftDome2.whenPressed(new SetEjectorSpeed(0.5));
-        leftDome3.whenPressed(new SetEjectorSpeed(1));
-        */
-        stickLeft.whileActive(new EjectorInSlow());
-        stickRight.whileActive(new EjectorOutFast());
+        liftTrigger.whileActive(new EjectorOutFast()); // launch
+        lift2.whileActive(new EjectorSlowReverse());  // SUCC     
+        lift3.whileActive(new EjectorInSlow());
 
         // Intake solenoid control
-        twoDotLeft.whenPressed(new OpenSolenoid(Robot.intakeSol));
-        oneDotLeftLeft.whenPressed(new CloseSolenoid(Robot.intakeSol));
+        lift8.whenPressed(new OpenSolenoid(Robot.intakeSol));
+        lift9.whenPressed(new CloseSolenoid(Robot.intakeSol));
 
-        rightDome1.whenPressed(new CompressorOn());
-        rightDome2.whenPressed(new CompressorOff());
+        mainRightDome1.whenPressed(new CompressorOn());
+        mainRightDome2.whenPressed(new CompressorOff());
 
-        hatUp.whileActive(new RaiseLift());
-        hatDown.whileActive(new LowerLift());
 
-        leftDome1.whileActive(new OpenSolenoid(Robot.grabPiston));
-        leftDome2.whileActive(new OpenSolenoid(Robot.shovePiston));
-        leftDome3.whileActive(new OpenSolenoid(Robot.floorPiston));
+        mainLeftDome1.whileActive(new OpenSolenoid(Robot.grabPiston));
+        mainLeftDome2.whileActive(new OpenSolenoid(Robot.shovePiston));
+        mainLeftDome3.whileActive(new OpenSolenoid(Robot.floorPiston));
+
 
         /* mech test
         rightDome3.whileActive(new mechTest(1)); // FRONT LEFT

@@ -7,19 +7,28 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.CommandGroup;
-import frc.robot.commands.SetEjectorSpeed;
-import frc.robot.commands.EjectorControlledSpin;
+import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
-public class EjectorSlowReverse extends CommandGroup {
-    /**
-     * Slowly bring the ball back into the bot, changing speed if need be.
-     */
-    public EjectorSlowReverse() {
-        if(Robot.ejector.getEjectorSpeed() != 0.4) {
-            addSequential(new SetEjectorSpeed(0.4));
-        }
-        addSequential(new EjectorControlledSpin(true));
-    }
+/**
+ * Add your docs here.
+ */
+public class ControlLift extends InstantCommand {
+  /**
+   * Add your docs here.
+   */
+  public ControlLift() {
+    super();
+    requires(Robot.roboLift);
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
+  }
+
+  // Called once when the command executes
+  @Override
+  protected void initialize() {
+      Robot.roboLift.rotateMotor(Robot.lift_stick.getY());
+  }
+
 }
