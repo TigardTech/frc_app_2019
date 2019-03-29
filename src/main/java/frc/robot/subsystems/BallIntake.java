@@ -59,9 +59,9 @@ public class BallIntake extends Subsystem {
      * going the right way around
      */
     public void spin(double quickness) {
-        System.out.println("controller says to go at " + quickness);
+        //System.out.println("controller says to go at " + quickness);
         ballIntake.set(ControlMode.PercentOutput, normalize(quickness));
-        System.out.println("intake go at " + normalize(quickness));
+        //System.out.println("intake go at " + normalize(quickness));
     }
 
     /**
@@ -70,7 +70,7 @@ public class BallIntake extends Subsystem {
     public void stop() {
         final double ADVANCED_NOTHING = 0;
         ballIntake.set(ControlMode.PercentOutput, ADVANCED_NOTHING);
-        System.out.println("intake no go");
+        //System.out.println("intake no go");
     }
 
     @Override
