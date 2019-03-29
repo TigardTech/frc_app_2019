@@ -22,6 +22,7 @@ public class IntakeStop extends InstantCommand {
     // Called once when the command executes
     @Override
     protected void initialize() {
+        System.out.println("intake no go");
         Robot.intake.stop();
     }
 }

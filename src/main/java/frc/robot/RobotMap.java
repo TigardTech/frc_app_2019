@@ -29,7 +29,7 @@ public class RobotMap {
     public static int BALL_EJECTOR_ONE = 15; // talon
     public static int BALL_EJECTOR_TWO = 17; // victor
     public static int LIFT_MOTOR = 10; // Talon
-    public static int GRAB_PISTON = 6;
+    public static int GRAB_PISTON = 5;
     public static int SHOVE_PISTON = 7;
     public static double UP_LIFT_SPEEDINESS = 0.6;
     public static double DOWN_LIFT_SPEEDINESS = 0.15;

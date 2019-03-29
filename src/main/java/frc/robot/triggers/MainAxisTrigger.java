@@ -9,7 +9,6 @@ package frc.robot.triggers;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Trigger;
-import frc.robot.Robot;
 
 /**
  * Triggers on any activity outside the 0.2 range from given joystick

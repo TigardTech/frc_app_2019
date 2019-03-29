@@ -9,7 +9,6 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
 /**
  * Add your docs here.
@@ -28,7 +27,7 @@ public class ControlLift extends InstantCommand {
   // Called once when the command executes
   @Override
   protected void initialize() {
-      Robot.roboLift.rotateMotor(Robot.lift_stick.getY());
+      Robot.roboLift.rotateMotor(-Robot.lift_stick.getY());
   }
 
 }
